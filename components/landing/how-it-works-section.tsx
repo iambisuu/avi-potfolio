@@ -7,13 +7,13 @@ const experiences = [
     number: "01",
     title: "Backend Developer",
     description: "Sapphire Broking (June 2025 - Sept 2025)",
-    code: `Developed highly optimized BSE and NSE APIs in TypeScript and GoLang, and implemented gRPC for efficient microservice communication.`,
+    code: `Developed highly optimized BSE and NSE APIs in TypeScript and GoLang, implementing gRPC for efficient microservice communication. Reduced API latency by 35%.`,
   },
   {
     number: "02",
     title: "Frontend Developer",
     description: "Sapphire Broking (Feb 2025 - June 2025)",
-    code: `Developed highly optimized BSE and NSE APIs in TypeScript and GoLang, and implemented gRPC for efficient microservice communication.`,
+    code: `Architected modern user interfaces using Next.js and React, resulting in a 40% improvement in load times and enhanced user engagement across the trading platform.`,
   }
 ];
 
@@ -126,7 +126,7 @@ export function HowItWorksSection() {
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                   <div className="w-3 h-3 rounded-full bg-background/20" />
                 </div>
-                <span className="text-xs font-mono text-background/40">workflow.ts</span>
+                <span className="text-xs font-mono text-background/40">experience.ts</span>
               </div>
 
               {/* Code content */}

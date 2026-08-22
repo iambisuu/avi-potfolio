@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
 
-const words = ["design", "build", "scale", "inspire"];
+const words = ["inspire", "engage", "perform", "scale"];
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -79,13 +79,13 @@ export function HeroSection() {
         {/* Main headline */}
         <div className="mb-12">
           <h1 
-            className={`text-[clamp(3rem,12vw,10rem)] font-display leading-[0.9] tracking-tight transition-all duration-1000 ${
+            className={`text-[clamp(2.5rem,8vw,6.5rem)] font-display leading-[0.9] tracking-tight transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="block">I turn ideas into</span>
+            <span className="block">Turning ideas into</span>
             <span className="block">
-              software that{" "}
+              experiences that{" "}
               <span className="relative inline-block">
                 <span 
                   key={wordIndex}
@@ -112,11 +112,11 @@ export function HeroSection() {
         {/* Description */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end">
           <p 
-            className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+            className={`text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            A passionate full-stack developer with 3 years of experience building scalable web applications using the latest technologies. I craft efficient, high-quality solutions for both startups and brands.
+            I'm a full-stack developer specializing in building exceptional digital experiences. With a focus on modern web technologies, AI, and scalable architecture, I craft high-performance solutions that help businesses and startups thrive.
           </p>
           
           {/* CTAs */}

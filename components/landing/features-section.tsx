@@ -5,26 +5,26 @@ import { useEffect, useRef, useState } from "react";
 const features = [
   {
     number: "01",
-    title: "Sapphire Website",
-    description: "Frontend Developer | UX Design, Sapphire Broking, 2025",
+    title: "Sapphire Trading Platform",
+    description: "Frontend Architecture & UX Design • Sapphire Broking • 2025",
     visual: "deploy",
   },
   {
     number: "02",
-    title: "New brand look and website",
-    description: "Frontend Developer | UX Design, Sapphire Broking, 2025",
+    title: "Sapphire Brand Identity",
+    description: "Digital Rebranding & Website Development • Sapphire Broking • 2025",
     visual: "collab",
   },
   {
     number: "03",
-    title: "E-Commerse Website for a Client",
-    description: "Website Development, 2025",
+    title: "E-Commerce Storefront",
+    description: "Full-Stack Development & Performance Optimization • 2025",
     visual: "security",
   },
   {
     number: "04",
-    title: "Better & Faster Website for college app",
-    description: "UX Design, 2025",
+    title: "University Portal Redesign",
+    description: "UX/UI Design & System Overhaul • 2025",
     visual: "ai",
   },
 ];
