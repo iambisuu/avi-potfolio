@@ -21,9 +21,54 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Avi Srivastava - Fullstack Developer | Web Designer',
-  description: 'A passionate full-stack developer building scalable web applications using the latest technologies.',
-  generator: 'v0.app',
+  title: {
+    default: 'Avi Srivastava | Full-Stack Developer & Web Designer',
+    template: '%s | Avi Srivastava'
+  },
+  description: 'Portfolio of Avi Srivastava, a full-stack developer specializing in scalable web applications, modern UIs, AI integrations, and exceptional digital experiences.',
+  keywords: ['Avi Srivastava', 'Full-Stack Developer', 'Web Designer', 'UX Design', 'Next.js', 'React', 'TypeScript', 'GoLang', 'Portfolio', 'Software Engineer'],
+  authors: [{ name: 'Avi Srivastava' }],
+  creator: 'Avi Srivastava',
+  publisher: 'Avi Srivastava',
+  metadataBase: new URL('https://humble-calendar-990661.framer.app'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://humble-calendar-990661.framer.app',
+    title: 'Avi Srivastava | Full-Stack Developer & Web Designer',
+    description: 'Portfolio of Avi Srivastava, a full-stack developer specializing in scalable web applications and exceptional digital experiences.',
+    siteName: 'Avi Srivastava Portfolio',
+    images: [
+      {
+        url: '/avi.png',
+        width: 800,
+        height: 800,
+        alt: 'Avi Srivastava',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Avi Srivastava | Full-Stack Developer & Web Designer',
+    description: 'Portfolio of Avi Srivastava, a full-stack developer specializing in scalable web applications and exceptional digital experiences.',
+    images: ['/avi.png'],
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({
