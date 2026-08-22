@@ -2,16 +2,42 @@
 
 import { useEffect, useState, useRef } from "react";
 
-const skills = [
-  { title: "UX Design", description: "From wireframes to user journeys I utilise various UX techniques to deliver world-class experience." },
-  { title: "Visual Design", description: "Proficient in creating visually compelling designs that align with brand identity and aesthetics." },
-  { title: "Prototyping", description: "Adept at creating interactive prototypes using tools like Figma." },
-  { title: "User Research", description: "Experienced in conducting user research, usability testing." },
+const skillCategories = [
+  { 
+    title: "Frontend Engineering", 
+    description: "Next.js, React, React Native, TailwindCSS, Three.js",
+    technologies: ["Next.js", "React", "React Native", "TailwindCSS", "Three.js"]
+  },
+  { 
+    title: "Backend & Systems", 
+    description: "Node.js, Go, Express, NestJS, Gin, Kafka",
+    technologies: ["Node.js", "Go", "Express", "NestJS", "Gin", "Kafka"]
+  },
+  { 
+    title: "Databases & Caching", 
+    description: "PostgreSQL, Prisma ORM, MongoDB, Redis",
+    technologies: ["PostgreSQL", "Prisma", "MongoDB", "Redis"]
+  },
+  { 
+    title: "Cloud & DevOps", 
+    description: "Docker, Kubernetes, AWS, Vercel, Render, CI/CD",
+    technologies: ["Docker", "Kubernetes", "AWS", "CI/CD", "Prometheus", "Grafana"]
+  },
+  { 
+    title: "AI & Machine Learning", 
+    description: "LLMs, LangChain, Vector Embeddings, RAG",
+    technologies: ["LLMs", "LangChain", "RAG", "Vector Embeddings"]
+  },
+  { 
+    title: "Core Languages", 
+    description: "TypeScript, JavaScript, Go, C++",
+    technologies: ["TypeScript", "JavaScript", "Go", "C++"]
+  },
 ];
 
 export function InfrastructureSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeLocation, setActiveLocation] = useState(0);
+  const [activeCategory, setActiveCategory] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -28,8 +54,8 @@ export function InfrastructureSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveLocation((prev) => (prev + 1) % skills.length);
-    }, 2000);
+      setActiveCategory((prev) => (prev + 1) % skillCategories.length);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -39,7 +65,7 @@ export function InfrastructureSection() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left: Content */}
           <div
-            className={`transition-all duration-700 ${
+            className={`transition-all duration-700 \${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
           >
@@ -52,41 +78,53 @@ export function InfrastructureSection() {
               <br />
               & Expertise.
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-              I bring a diverse set of skills to the table, from UX design and prototyping to user research. My goal is to create products that look great and function seamlessly.
+            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              I am a versatile engineer specializing in scalable system architecture, real-time distributed platforms, and seamless frontend experiences. 
             </p>
+            
+            <div className="flex flex-wrap gap-2">
+              {["System Architecture", "Distributed Systems", "DSA", "WebSockets", "Apache Kafka"].map(spec => (
+                <span key={spec} className="px-3 py-1 bg-foreground/5 text-sm font-medium rounded-full">
+                  {spec}
+                </span>
+              ))}
+            </div>
           </div>
 
-          {/* Right: Location list */}
+          {/* Right: Skill list */}
           <div
-            className={`transition-all duration-700 delay-200 ${
+            className={`transition-all duration-700 delay-200 \${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <div className="border border-foreground/10">
+            <div className="border border-foreground/10 rounded-2xl overflow-hidden bg-background">
               {/* Header */}
-              <div className="px-6 py-4 border-b border-foreground/10 flex items-center justify-between">
-                <span className="text-sm font-mono text-muted-foreground">Skills</span>
+              <div className="px-6 py-4 border-b border-foreground/10 flex items-center justify-between bg-foreground/5">
+                <span className="text-sm font-mono text-muted-foreground">Tech Stack</span>
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                </div>
               </div>
 
-              {/* Locations */}
+              {/* Categories */}
               <div>
-                {skills.map((location, index) => (
+                {skillCategories.map((category, index) => (
                   <div
-                    key={location.title}
-                    className={`px-6 py-5 border-b border-foreground/5 last:border-b-0 flex items-center justify-between transition-all duration-300 ${
-                      activeLocation === index ? "bg-foreground/[0.02]" : ""
+                    key={category.title}
+                    className={`px-6 py-5 border-b border-foreground/5 last:border-b-0 flex flex-col justify-center transition-all duration-300 \${
+                      activeCategory === index ? "bg-foreground/[0.03]" : ""
                     }`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4">
                       <span 
-                        className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-300 ${
-                          activeLocation === index ? "bg-foreground" : "bg-foreground/20"
+                        className={`w-2 h-2 mt-2 rounded-full shrink-0 transition-colors duration-300 \${
+                          activeCategory === index ? "bg-foreground" : "bg-foreground/20"
                         }`}
                       />
                       <div>
-                        <div className="font-medium">{location.title}</div>
-                        <div className="text-sm text-muted-foreground">{location.description}</div>
+                        <div className="font-semibold text-lg">{category.title}</div>
+                        <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{category.description}</div>
                       </div>
                     </div>
                   </div>

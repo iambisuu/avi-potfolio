@@ -5,15 +5,21 @@ import { useEffect, useRef, useState } from "react";
 const experiences = [
   {
     number: "01",
-    title: "Backend Developer",
-    description: "Sapphire Broking (June 2025 - Sept 2025)",
-    code: `Developed highly optimized BSE and NSE APIs in TypeScript and GoLang, implementing gRPC for efficient microservice communication. Reduced API latency by 35%.`,
+    title: "SDE Intern",
+    description: "Business Core Solutions (July 2026 - Aug 2026)",
+    code: `Developed Flutter mobile workflows for temporary privileged-access requests. Integrated REST APIs for submission, validation, and status tracking with role-based emergency approval flows.`,
   },
   {
     number: "02",
-    title: "Frontend Developer",
-    description: "Sapphire Broking (Feb 2025 - June 2025)",
-    code: `Architected modern user interfaces using Next.js and React, resulting in a 40% improvement in load times and enhanced user engagement across the trading platform.`,
+    title: "Full Stack Developer",
+    description: "Kaana AI Technologies (Dec 2025 - June 2026)",
+    code: `Architected scalable Brand–Influencer marketplace. Implemented modular backend services with RBAC, integrated Exotel, and designed AI-powered influencer matching. Delivered cross-platform applications in Next.js and React Native.`,
+  },
+  {
+    number: "03",
+    title: "Full Stack Developer",
+    description: "Sapphire Broking (Feb 2025 - Oct 2025)",
+    code: `Integrated NSE and BSE exchange APIs in Go. Built scalable, low-latency backend services for high-frequency trading data workflows. Created high-performance trading dashboards using Next.js and TailwindCSS.`,
   }
 ];
 
@@ -37,7 +43,7 @@ export function HowItWorksSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % experiences.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -68,7 +74,7 @@ export function HowItWorksSection() {
             Experience
           </span>
           <h2
-            className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
+            className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 \${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
@@ -85,7 +91,7 @@ export function HowItWorksSection() {
                 key={step.number}
                 type="button"
                 onClick={() => setActiveStep(index)}
-                className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group ${
+                className={`w-full text-left py-8 border-b border-background/10 transition-all duration-500 group \${
                   activeStep === index ? "opacity-100" : "opacity-40 hover:opacity-70"
                 }`}
               >
@@ -105,7 +111,7 @@ export function HowItWorksSection() {
                         <div 
                           className="h-full bg-background w-0"
                           style={{
-                            animation: 'progress 5s linear forwards'
+                            animation: 'progress 6s linear forwards'
                           }}
                         />
                       </div>
@@ -118,51 +124,39 @@ export function HowItWorksSection() {
 
           {/* Code display */}
           <div className="lg:sticky lg:top-32 self-start">
-            <div className="border border-background/10 overflow-hidden">
+            <div className="border border-background/10 overflow-hidden rounded-xl">
               {/* Window header */}
-              <div className="px-6 py-4 border-b border-background/10 flex items-center justify-between">
+              <div className="px-6 py-4 border-b border-background/10 flex items-center justify-between bg-background/5">
                 <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
-                  <div className="w-3 h-3 rounded-full bg-background/20" />
+                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
                 </div>
                 <span className="text-xs font-mono text-background/40">experience.ts</span>
               </div>
 
               {/* Code content */}
-              <div className="p-8 font-mono text-sm min-h-[280px]">
-                <pre className="text-background/70">
-                  {experiences[activeStep].code.split('\n').map((line, lineIndex) => (
+              <div className="p-8 font-mono text-sm min-h-[280px] bg-background/5">
+                <pre className="text-background/70 whitespace-pre-wrap break-words">
+                  {experiences[activeStep].code.split('. ').map((sentence, index, array) => (
                     <div 
-                      key={`${activeStep}-${lineIndex}`} 
-                      className="leading-loose code-line-reveal"
+                      key={`\${activeStep}-\${index}`} 
+                      className="leading-loose code-line-reveal mb-2"
                       style={{ 
-                        animationDelay: `${lineIndex * 80}ms`,
+                        animationDelay: `\${index * 150}ms`,
                       }}
                     >
-                      <span className="text-background/20 select-none w-8 inline-block">{lineIndex + 1}</span>
-                      <span className="inline-flex">
-                        {line.split('').map((char, charIndex) => (
-                          <span
-                            key={`${activeStep}-${lineIndex}-${charIndex}`}
-                            className="code-char-reveal"
-                            style={{
-                              animationDelay: `${lineIndex * 80 + charIndex * 15}ms`,
-                            }}
-                          >
-                            {char === ' ' ? '\u00A0' : char}
-                          </span>
-                        ))}
-                      </span>
+                      <span className="text-background/40 select-none mr-4">{(index + 1).toString().padStart(2, '0')}</span>
+                      <span className="text-background/90">{sentence}{index !== array.length - 1 ? '.' : ''}</span>
                     </div>
                   ))}
                 </pre>
               </div>
 
               {/* Status */}
-              <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3">
+              <div className="px-6 py-4 border-t border-background/10 flex items-center gap-3 bg-background/5">
                 <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-xs font-mono text-background/40">Ready</span>
+                <span className="text-xs font-mono text-background/40">Active Instance</span>
               </div>
             </div>
           </div>
@@ -177,27 +171,14 @@ export function HowItWorksSection() {
         
         .code-line-reveal {
           opacity: 0;
-          transform: translateX(-8px);
-          animation: lineReveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          transform: translateY(8px);
+          animation: lineReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
         
         @keyframes lineReveal {
           to {
             opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        .code-char-reveal {
-          opacity: 0;
-          filter: blur(8px);
-          animation: charReveal 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-        
-        @keyframes charReveal {
-          to {
-            opacity: 1;
-            filter: blur(0);
+            transform: translateY(0);
           }
         }
       `}</style>
